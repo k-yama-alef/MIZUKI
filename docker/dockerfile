@@ -1,0 +1,46 @@
+# どんなdockerイメージを利用して構築をするか
+FROM php:7.4.26-apache
+
+# Env variables
+ENV ACCEPT_EULA=y
+
+# Install selected extensions and other stuff
+RUN apt-get update \
+    && apt-get -y --no-install-recommends install apt-utils libxml2-dev gnupg apt-transport-https \
+    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+# Install git
+RUN apt-get update \
+    && apt-get -y install git \
+    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+#Install ODBC Driver
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+    && apt-get update
+
+# Install sqlsrv
+RUN apt-get update
+RUN apt-get install -y wget
+RUN wget http://ftp.br.debian.org/debian/pool/main/g/glibc/multiarch-support_2.24-11+deb9u4_amd64.deb && \
+    dpkg -i multiarch-support_2.24-11+deb9u4_amd64.deb
+RUN apt-get -y install msodbcsql17 unixodbc-dev
+RUN pecl install sqlsrv pdo_sqlsrv
+
+# Install webapp extension
+RUN apt-get update && \
+    apt-get install -y \
+    git libzip-dev libicu-dev libpq-dev libonig-dev\
+    && docker-php-ext-install zip 
+RUN docker-php-ext-install mbstring intl mysqli pdo pdo_mysql
+RUN a2enmod rewrite
+
+ADD php.ini /usr/local/etc/php
+ADD 000-default.conf /etc/apache2/sites-enabled/
+
+# Composerのインストール
+RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/bin/composer.phar /usr/bin/composer
+
+#COPY www /var/www/html/
+EXPOSE 80/tcp
+EXPOSE 443/tcp

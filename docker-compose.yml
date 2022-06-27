@@ -1,0 +1,16 @@
+# Compose fileのバージョン指定
+version: '3'
+# どんなコンテナを立ち上げるか
+services:
+ # laravelを動かすコンテナ
+ app:
+   # どのポートを開いて繋ぐか。下記はコンテナの80番ポートを開いて、ホストの8003番につなぐ
+   ports:
+     - "8003:80"
+   # 先ほど作ったDockerfileを使って、コンテナをビルドするという指定
+   build: ./docker
+   # コンテナの名前を指定
+   container_name: mizuki
+   # コンテナとホスト側のディレクトリを同期する場所の指定。laravelのソースが入る予定の場所
+   volumes:
+     - ./src:/var/www/html

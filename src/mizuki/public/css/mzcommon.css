@@ -1,0 +1,222 @@
+#loading {
+  display: table;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  opacity: 0.8;
+}
+#loading .loadingMsg {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 100px;
+    background: url("/image/loading.gif") center center no-repeat;
+}
+
+/* 項目固定用(三行用） */
+.cssOutline{
+  overflow: auto;
+  width: auto;
+  height:67vh;
+  min-height:60px;
+}
+.cssOutline table{
+  margin: 10px auto;
+  border-spacing: 0;
+  border-collapse:separate;
+  /* height:1rem; */
+  /* border-top: 3px none;  太さ3pxの実線 */
+	border-right: 3px #0072bc solid;  /* 太さ3pxの実線 */
+	border-bottom: 3px #0072bc solid;  /* 太さ3pxの実線 */
+	border-left: 3px #0072bc solid;  /* 太さ3pxの実線 */
+}
+.cssOutline th{
+  font-size: 15px;
+  background: #ffffff;
+  border: solid 2px #ccc;
+  padding: 10px;
+  white-space: nowrap;
+}
+.cssOutline td{
+  font-size: 15px;
+  background: #ffffff;
+  border: solid 2px #ccc;
+  padding: 10px;
+  /* border-bottom: 3px #0072bc solid;  太さ3pxの実線 */
+  white-space: nowrap;
+}
+
+/* 行ごとに色を変える（三行一つなので三つずつ） */
+.cssOutline tbody:nth-child(2n+1) td{
+	background: #add8e6;
+}
+
+.cssOutline tbody:nth-child(2n+2) td{
+	background: #ffffff;
+}
+/* ＊＊＊　　　　　　　　　　　　　　　　　　　　 */
+.cssOutline th{
+  font-size: 15px;
+  background: #a3eaff;
+  border: solid 2px #ccc;
+  padding: 10px;/* 枠内の余白*/
+  text-align:center; /* テキスト文字を中央にまとめる */
+
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+.cssOutline thead th {
+  /* 縦スクロール時に固定する */
+  position: -webkit-sticky;
+  position: sticky;
+  /* 高さが変わらないよう改行させない */
+  white-space: nowrap;
+  height:3vh;
+}
+.cssOutline thead tr:nth-child(1) th {
+  top: 0;
+  border-top: 3px #0072bc solid;  /* 太さ3pxの実線 */
+}
+.cssOutline thead tr:nth-child(2) th {
+  top: 3vh; /* 2行目は1行目の高さの位置に固定する */
+}
+.cssOutline thead tr:nth-child(3) th {
+  top: 6vh; /* 3行目は1〜2行目の高さの位置に固定する */
+  border-bottom: 3px #0072bc solid;  /* 太さ3pxの実線 */
+}
+.cssOutline thead2 th {
+  /* 縦スクロール時に固定する */
+  position: -webkit-sticky;
+  position: sticky;
+  /* 高さが変わらないよう改行させない */
+  white-space: nowrap;
+  height:3vh;
+}
+.cssOutline thead2 tr:nth-child(1) th {
+  top: 0;
+  border-top: 3px #0072bc solid;  /* 太さ3pxの実線 */
+}
+.cssOutline thead2 tr:nth-child(2) th {
+  top: 1.5vh; /* 2行目は1行目の高さの位置に固定する */
+}
+
+.cssOutline tr:first-child th:first-child{
+  z-index: 1;
+}
+/* ----------------- */
+/* 項目固定用(二行用） */
+.cssOutline2{
+  overflow: auto;
+  width: auto;
+  height:67vh;
+  min-height:60px;
+}
+.cssOutline2 table{
+  margin: 10px auto;
+  border-spacing: 0;
+  border-collapse:separate;
+  /* height:1rem; */
+  /* border-top: 3px none;  太さ3pxの実線 */
+	border-right: 3px #0072bc solid;  /* 太さ3pxの実線 */
+	border-bottom: 3px #0072bc solid;  /* 太さ3pxの実線 */
+	border-left: 3px #0072bc solid;  /* 太さ3pxの実線 */
+}
+.cssOutline2 th{
+  font-size: 15px;
+  background: #ffffff;
+  border: solid 2px #ccc;
+  padding: 10px;
+  white-space: nowrap;
+}
+.cssOutline2 td{
+  font-size: 15px;
+  background: #ffffff;
+  border: solid 2px #ccc;
+  padding: 10px;
+  /* border-bottom: 3px #0072bc solid;  太さ3pxの実線 */
+  white-space: nowrap;
+}
+
+/* 行ごとに色を変える（三行一つなので三つずつ） */
+.cssOutline2 tbody:nth-child(2n+1) td{
+	background: #add8e6;
+}
+
+.cssOutline2 tbody:nth-child(2n+2) td{
+	background: #ffffff;
+}
+/* ＊＊＊　　　　　　　　　　　　　　　　　　　　 */
+.cssOutline2 th{
+  font-size: 15px;
+  background: #a3eaff;
+  border: solid 2px #ccc;
+  padding: 10px;/* 枠内の余白*/
+  text-align:center; /* テキスト文字を中央にまとめる */
+
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+.cssOutline2 thead th {
+  /* 縦スクロール時に固定する */
+  position: -webkit-sticky;
+  position: sticky;
+  /* 高さが変わらないよう改行させない */
+  white-space: nowrap;
+  height:50px;
+}
+.cssOutline2 thead tr:nth-child(1) th {
+  top: 0;
+  border-top: 3px #0072bc solid;  /* 太さ3pxの実線 */
+}
+.cssOutline2 thead tr:nth-child(2) th {
+  top: 50px; /* 2行目は1行目の高さの位置に固定する */
+}
+
+.cssOutline2 tr:first-child th:first-child{
+  z-index: 1;
+}
+/* ----------------- */
+/* ******************************** */
+  /* テキストエリアの設定 */
+.textarea_2 {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  resize: auto;
+  max-width: 500px;
+  /* max-height: 500px; */
+  min-width: 150px;
+  min-height: 100px;
+  width:150px;
+  height:80px;
+}
+
+/* ******************************** */
+/* A4横用のベース設定 */
+@page {
+  size: A4 landscape; /* 横の場合はlandscape */
+  margin: 20px 20px 85px 20px;
+}
+@media print {
+  .btn{ display: none;}
+  .btn-primary{ display: none;}
+  .Button_S_Waku{ display: none;}
+  body {
+  zoom: 55%;
+  }
+  .cssOutline{
+    overflow: visible;
+  }
+  .cssOutline2{
+    overflow: visible;
+  }
+}
+/* ******************************** */
